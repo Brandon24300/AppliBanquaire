@@ -34,12 +34,14 @@ class CompteCourantControllerTest {
     @Autowired
     ClientRepository clientRepository;
 
+    Client clien;
+
     /**
      * Sets up.
      */
     @BeforeEach
     void setUp() {
-        Client clien = new Client("aaa","bb");
+         clien = new Client("aaa","bb");
         clien = clientRepository.save(clien);
         CompteCourant compteCourant = new CompteCourant("Compte",1000,10);
         CompteCourant c2 = new CompteCourant("Compte",1000,10);
@@ -68,8 +70,8 @@ class CompteCourantControllerTest {
      */
     @Test
     void addNewCompteCourant() {
-//        CompteCourant compteCourant = new CompteCourant("dddd","Compte",1000,10);
-//        String response = compteCourantController.addNewCompteCourant(compteCourant.getNumero(),compteCourant.getIntitule(),compteCourant.getSolde(),compteCourant.getMontantDecouvertAutorise());
-//        assertEquals("Saved",response);
+        CompteCourant compteCourant = new CompteCourant("Compte",1000,10);
+        String response = compteCourantController.addNewCompteCourant(compteCourant.getIntitule(),compteCourant.getSolde(),compteCourant.getMontantDecouvertAutorise(),clien.getId());
+        assertEquals("Saved",response);
     }
 }

@@ -12,6 +12,8 @@ public class CompteEpargne extends  Compte {
         this.tauxInteret = tauxInteret > 0 ? tauxInteret / 100 : -tauxInteret / 100;
     }
 
+    public CompteEpargne() {
+    }
 
     @Override
     public Operation debiter(double somme,String libelle) {

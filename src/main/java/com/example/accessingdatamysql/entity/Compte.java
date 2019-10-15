@@ -1,5 +1,6 @@
 package com.example.accessingdatamysql.entity;
 
+import com.example.accessingdatamysql.interfacee.ICompteStat;
 import com.fasterxml.jackson.annotation.*;
 
 import javax.persistence.*;
@@ -14,7 +15,7 @@ import java.util.Set;
 
 
 @MappedSuperclass
- public abstract class Compte {
+ public abstract class Compte implements ICompteStat {
 
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)

@@ -1,4 +1,4 @@
-package entity;
+package com.example.accessingdatamysql.entity;
 
 import java.net.URL;
 
