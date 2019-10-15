@@ -2,7 +2,9 @@ package controller;
 
 import com.example.accessingdatamysql.AccessingDataMysqlApplication;
 import com.example.accessingdatamysql.controller.CompteController;
+import com.example.accessingdatamysql.entity.Client;
 import com.example.accessingdatamysql.entity.CompteCourant;
+import com.example.accessingdatamysql.repository.ClientRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
@@ -29,15 +31,20 @@ class CompteCourantControllerTest {
     @Autowired
     CompteController compteCourantController;
 
+    @Autowired
+    ClientRepository clientRepository;
+
     /**
      * Sets up.
      */
     @BeforeEach
     void setUp() {
-//        CompteCourant compteCourant = new CompteCourant("MSI001","Compte",1000,10);
-//        CompteCourant c2 = new CompteCourant("MSI001","Compte",1000,10);
-//        compteCourantController.addNewCompteCourant(compteCourant.getNumero(),compteCourant.getIntitule(),compteCourant.getSolde(),compteCourant.getMontantDecouvertAutorise());
-//        compteCourantController.addNewCompteCourant(c2.getNumero(),c2.getIntitule(),c2.getSolde(),c2.getMontantDecouvertAutorise());
+        Client clien = new Client("aaa","bb");
+        clien = clientRepository.save(clien);
+        CompteCourant compteCourant = new CompteCourant("Compte",1000,10);
+        CompteCourant c2 = new CompteCourant("Compte",1000,10);
+        compteCourantController.addNewCompteCourant(compteCourant.getIntitule(),compteCourant.getSolde(),compteCourant.getMontantDecouvertAutorise(),clien.getId());
+        compteCourantController.addNewCompteCourant(c2.getIntitule(),c2.getSolde(),c2.getMontantDecouvertAutorise(),clien.getId());
     }
 
     /**

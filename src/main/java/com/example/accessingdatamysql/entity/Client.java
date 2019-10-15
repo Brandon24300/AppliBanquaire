@@ -84,6 +84,10 @@ public class Client implements Serializable {
         this.compteCourant = compteCourant;
     }
 
+    public void addCompteEpargne(CompteEpargne compteEpargne){
+        getCompteEpargne().add(compteEpargne);
+    }
+
     public double calculAvoir(){
         double somme = 0;
         if (compteCourant != null){

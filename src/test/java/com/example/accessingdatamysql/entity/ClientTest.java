@@ -37,6 +37,8 @@ class ClientTest {
     void calcul_Avoir_Un_Compte_Epargne(){
         Client cli = new Client("aaa","bbb");
         CompteEpargne c2 = new CompteEpargne("a",200,20);
+        cli.addCompteEpargne(c2);
+
         assertEquals(cli.calculAvoir(),200);
     }
 
