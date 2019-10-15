@@ -14,7 +14,12 @@ class OperationTest {
     }
 
     @Test
-    void getCompteCourant() {
+    void getCompteCourant_Non_Instancie() {
         assertEquals(null,op.getCompteCourant());
+    }
+
+    @Test
+    void getCompteEpargne_Non_Instancie() {
+        assertEquals(null,op.getCompteEpargne());
     }
 }

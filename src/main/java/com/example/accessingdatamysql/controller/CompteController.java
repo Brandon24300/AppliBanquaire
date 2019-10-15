@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
- * The type Compte courant controller.
+ * Contient le compte courant controllet et compte epargne controller
  */
 @Controller    // This means that this class is a Controller
 @RequestMapping(path="/compte")
@@ -43,6 +43,12 @@ public class CompteController {
         return compteCourantRepository.findAll();
     }
 
+    /**
+     *
+     * @param numero du compte courant
+     *               Supprimes les opérations associés au compte
+     * @return
+     */
     @PostMapping(path="/courant/delete") // Map ONLY POST Requests
     public @ResponseBody String removeCompteCourantClient(@RequestParam Integer numero){
         List<Operation> allCompteCourant = operationRepository.findAllCompteCourantOperation(numero);
@@ -81,6 +87,12 @@ public class CompteController {
         return compteEpargneRepository.findAll();
     }
 
+    /**
+     *
+     * @param numero du compte d'epargne
+     *               Delete aussi les operations associés
+     * @return
+     */
     @PostMapping(path="/epargne/delete") // Map ONLY POST Requests
     public @ResponseBody String removeCompteEpargneClient(@RequestParam Integer numero){
         List<Operation> allCompteEpargne = operationRepository.findAllCompteEpargneOperation(numero);

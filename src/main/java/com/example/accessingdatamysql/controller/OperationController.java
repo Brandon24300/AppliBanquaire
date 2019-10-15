@@ -30,8 +30,8 @@ public class OperationController {
      * @param numeroCompte
      * @param somme
      * @param libelle
-     * @param typeOperation 0 = crediter / 1 = debiter
-     * @param typeCompte  0 = compte courant / 1 = compte epargne
+     * @param typeOperation  crediter ou debiter
+     * @param typeCompte  soit eparnge , soit courant
      * @return
      */
     @PostMapping(path="/add")
